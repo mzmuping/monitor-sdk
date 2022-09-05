@@ -1,0 +1,40 @@
+{
+  "name": "fd-fe-monitor-sdk",
+  "version": "0.0.1",
+  "description": "梵大前端项目监控前端sdk",
+  "main": "index.js",
+  "author": "fdfe",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -c ./rollup.config.js --watch",
+    "build": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
+    "web": "anywhere -d website -p 8080"
+  },
+  "dependencies": {
+    "localforage": "^1.7.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime": "^7.9.6",
+    "@rollup/plugin-alias": "^3.1.0",
+    "anywhere": "^1.5.0",
+    "babel": "^6.23.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "cross-env": "^7.0.2",
+    "rollup": "^2.7.6",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "registry": "http://nexus.chungoulife.com/repository/npm-hosted/"
+  }
+}

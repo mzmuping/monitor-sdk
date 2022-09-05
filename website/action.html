@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>action</title>
+  <script src="./lib/fd-fe-monitor-sdk/fd-fe-monitor-sdk.bundle.js" data-monitor-upload-url="https://cgdjango.chungoulife.com/savedata/" data-monitor-application="TestAction"></script>
+</head>
+<body>
+  <div>
+    <h1 id="h1">Hello World!</h1>
+    <div style="width:100px; height:100px; background:red;"></div>
+    <div style="width:100px; height:100px; background:gray;"></div>
+    <div class="wrapper">
+      <div class="inner" monitor-desc="inner area tap">12321321</div>
+    </div>
+    <hr />
+    <button class="hash-forward">hash-forward</button>
+    <button class="hash-back">hash-back</button>
+    <hr />
+    <button class="history-forward">history-forward</button>
+    <button class="history-back">history-back</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script>
+
+    $('#h1').click(function(e) {
+      e.stopPropagation();
+      return;
+    });
+
+    $('.hash-forward').click(function(e) {
+      location.hash = 'aaa';
+    });
+
+    $('.history-forward').click(function(e) {
+      history.pushState({}, '', '/aa/bb/cc');
+    });
+    $('.history-back').click(function(e) {
+      history.back();
+    });
+
+  </script>
+</body>
+</html>

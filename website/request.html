@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>request</title>
+  <script src="./lib/fd-fe-monitor-sdk/fd-fe-monitor-sdk.bundle.js" data-monitor-upload-url="https://cgdjango.chungoulife.com/savedata/" data-monitor-application="TestRequest"></script>
+</head>
+<body>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
+  <script>
+    // $(function() {
+    //   const option = {
+    //     url: '/',
+    //     method: 'get',
+    //   }
+    //   $.ajax(option);
+    //   $.ajax(option);
+    //   $.ajax(option);
+    //   $.get('https://api.github.com/orgs/octokit/repos').then(console.log);
+    // });
+    fetch('https://cgyapi.chungoulife.com/mock/35/infinite/purchaseOrder/findPage', {
+      method: 'get', // *GET, POST, PUT, DELETE, etc.t match 'Content-Type' header
+    })
+      .then(response => {
+        // reject on network failure or if anything prevented the request from completing.
+        // won’t reject on HTTP error status even if the response is an HTTP 404 or 500,
+        // it will resolve normally (with ok status set to false)
+        if (response.status >= 200 && response.status < 300) {
+          return Promise.resolve(response);
+        }
+        return Promise.reject(new Error(response.statusText));
+      })
+      .then(response => response.json()) // parses response to JSON
+      .then(result => {
+        // custom error
+        // console.log(JSON.stringify(result).length);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    // 自定义数据
+    FdFeMonitor.addCustomInfo({
+      userinfo: {
+        avatar: 'https://img.baidu.com/zhjkahgoznkga13.jpg',
+        nickname: 'wlybq',
+        token: 'xxxxxxxxxxx',
+      },
+      token: 'xxxxxxxxxxx',
+    })
+  </script>
+</body>
+</html>
